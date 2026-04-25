@@ -1,6 +1,7 @@
 # 2maiss 🖱️🖱️
 
 **2maiss** (pronounced *Two Mice*) is a lightweight dual-mouse touch solution designed for a specific "washing machine" rhythm game. Experience hardcore charts using just two standard USB mice.
+Source code is currently a mess but will be open-sourced after cleanup.
 
 ### ✨ Key Features
 
