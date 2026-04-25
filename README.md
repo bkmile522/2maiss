@@ -70,6 +70,15 @@ If you have set `HideSubMonitor = true` as instructed, the touch area should alr
 
 ---
 
+## 💻 Testing Environment
+
+This software was developed and tested strictly under the following environment. **Other environments have not been tested and are not guaranteed to work.**
+
+1. **OS**: Windows 10
+2. **Mod Loader**: **MelonLoader** (Tested on version: `v0.6.4 Open-Beta`)
+
+---
+
 ## 💖 Credits & Acknowledgements
 
 * **[Mai2Touch](https://github.com/Sucareto/Mai2Touch)**: For the serial protocol reference.
