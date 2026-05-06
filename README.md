@@ -1,7 +1,6 @@
 # 2maiss 🖱️🖱️
 
 **2maiss** (pronounced *Two Mice*) is a lightweight dual-mouse touch solution designed for a specific "washing machine" rhythm game. Experience hardcore charts using just two standard USB mice.
-Source code is currently a mess but will be open-sourced after cleanup.
 
 ### ✨ Key Features
 
@@ -69,21 +68,30 @@ If you have set `HideSubMonitor = true` as instructed, the touch area should alr
 * **Buttons Remapping**: You can change which mouse buttons trigger **Tap** vs. **Wipe** in the Launcher's Play Settings.
 
 ---
+## 🏗️ Building from Source
 
-## 💻 Testing Environment
+Due to copyright restrictions, the required Unity and MelonLoader assemblies are not included in this repository. 
 
-This software was developed and tested strictly under the following environment. **Other environments have not been tested and are not guaranteed to work.**
+**Required dependencies:**
+* `MelonLoader.dll`
+* `UnityEngine.CoreModule.dll`
+* `UnityEngine.IMGUIModule.dll`
+* `UnityEngine.ImageConversionModule.dll`
 
-1. **OS**: Windows 10
-2. **Mod Loader**: **MelonLoader** (Tested on version: `v0.6.4 Open-Beta`)
+**Steps:**
+1. Copy the DLLs listed above.
+2. Place them in the `Frontend` folder.
+3. Open the project in Visual Studio or run `dotnet build` to compile.
 
----
+*Note: The Backend and Launcher are standalone and can be built right out of the box without any external proprietary DLLs.*
 
 ## 💖 Credits & Acknowledgements
 
 * **[Mai2Touch](https://github.com/Sucareto/Mai2Touch)**: For the serial protocol reference.
 * **Cursor Assets**: Cursor pack provided by [Kenney](https://kenney.nl/assets/cursor-pack).
 * **Gemini 3.1 Pro**: Core logic and UI structure assistance. 100% vibe coding! 🤖
-
+* **[stb_image](https://github.com/nothings/stb)**: Single-file public domain library used for loading the LUT image.
+* **[mINI](https://github.com/pulzed/mINI)**: A tiny and fast header-only C++ INI file parser used for configuration management.
+* **[MelonLoader](https://github.com/LavaGang/MelonLoader)**: The foundational modding framework that makes the frontend overlay possible.
 ---
 *Disclaimer: This project is for technical research and educational purposes only. It is free and not affiliated with any commercial entities.*
