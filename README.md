@@ -2,6 +2,8 @@
 
 [![License: PolyForm Noncommercial](https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg)](https://polyformproject.org/licenses/noncommercial/1.0.0)
 
+Required Notice: Copyright 2026 bkmile552 (https://github.com/bkmile522/2maiss)
+
 **2maiss** (pronounced *Two Mice*) is a lightweight dual-mouse touch solution designed for a specific "washing machine" rhythm game. Experience hardcore charts using just two standard USB mice.
 
 ### ✨ Key Features
