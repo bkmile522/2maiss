@@ -3,60 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2maiss | The Dual-Mouse Interface</title>
-<meta name="description" content="A lightweight hardware emulator mapping standard USB mice to virtual COM ports for specific arcade setups.">
-<meta name="keywords" content="2maiss, washing machine rhythm game, com0com, aquamai, serial protocol, hardware emulator, dual mouse, touch panel">
+<title>2maiss | Dual-Mouse Touch Solution</title>
+<meta name="description" content="2maiss is a lightweight dual-mouse touch solution designed for specific rhythm games. Experience hardcore charts using just two standard USB mice.">
+<meta name="keywords" content="2maiss, maimai, mai2, maimai dx, aquamai, mai2touch, com0com, serial protocol, dual mouse, touch panel alternative, arcade emulator, rhythm game input mapper">
 <style>
-body { background-color: #0a0a0c; color: #c9d1d9; font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; }
-h1 { color: #58a6ff; font-size: 2.2em; margin-bottom: 5px; }
-.subtitle { color: #8b949e; margin-top: 0; margin-bottom: 30px; font-size: 1.1em; }
-h2 { color: #79c0ff; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 8px; font-size: 1.3em; }
-a { color: #58a6ff; text-decoration: none; border-bottom: 1px dotted #58a6ff; padding-bottom: 2px; transition: color 0.2s; }
-a:hover { color: #79c0ff; border-bottom: 1px solid #79c0ff; }
-.warning { border: 1px solid #792e2e; padding: 15px; border-radius: 4px; margin: 25px 0; color: #ff7b72; background-color: rgba(248,81,73,0.05); font-size: 0.95em; }
-.code { background-color: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e6edf3; border: 1px solid #30363d; }
-ul { list-style-type: square; padding-left: 20px; color: #8b949e; }
-li { margin-bottom: 12px; }
-li strong { color: #c9d1d9; }
+    :root {
+        --bg-color: #0d1117;
+        --text-color: #c9d1d9;
+        --link-color: #58a6ff;
+        --border-color: #30363d;
+        --code-bg: #161b22;
+        --accent-color: #1f6feb;
+    }
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.6;
+        padding: 40px 20px;
+        max-width: 850px;
+        margin: 0 auto;
+    }
+    h1, h2, h3 {
+        color: #c9d1d9;
+        font-weight: 600;
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
+    h1 { font-size: 2em; border-bottom: 1px solid var(--border-color); padding-bottom: .3em; }
+    h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: .3em; margin-top: 40px; }
+    h3 { font-size: 1.25em; }
+    a {
+        color: var(--link-color);
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    p, ul, ol {
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+    ul, ol {
+        padding-left: 2em;
+    }
+    li {
+        margin-bottom: 0.25em;
+    }
+    code {
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+        font-size: 85%;
+        background-color: rgba(110,118,129,0.4);
+        padding: 0.2em 0.4em;
+        border-radius: 6px;
+    }
+    pre {
+        background-color: var(--code-bg);
+        border-radius: 6px;
+        padding: 16px;
+        overflow: auto;
+        border: 1px solid var(--border-color);
+    }
+    pre code {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        color: #e6edf3;
+    }
+    hr {
+        height: 1px;
+        background-color: var(--border-color);
+        border: none;
+        margin: 24px 0;
+    }
+    .badge-container {
+        margin-bottom: 16px;
+    }
+    .disclaimer {
+        font-style: italic;
+        color: #8b949e;
+        font-size: 0.9em;
+        margin-top: 40px;
+        border-top: 1px solid var(--border-color);
+        padding-top: 16px;
+    }
+    strong {
+        font-weight: 600;
+    }
 </style>
 </head>
 <body>
-<h1>2maiss 🖱️🖱️</h1>
-<p class="subtitle">Hardware-level dual-mouse touch translation for a specific "washing machine" rhythm game.</p>
 
-<div class="warning">
-LEGAL NOTICE: This repository contains ONLY generic input translation logic. It does NOT distribute proprietary game binaries, decryptors, cabinet keys, or copyrighted Unity/MelonLoader assemblies. It is a clean-room implementation of serial protocols.
+<h1>2maiss 🖱️🖱️</h1>
+
+<div class="badge-container">
+    <a href="https://polyformproject.org/licenses/noncommercial/1.0.0" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.shields.io/badge/License-PolyForm%20Noncommercial-blue.svg" alt="License: PolyForm Noncommercial">
+    </a>
 </div>
 
-<h2>Overview</h2>
-<p>Dedicated hardware touch panels for specific arcade setups can be prohibitively expensive. <strong>2maiss</strong> (pronounced <em>Two Mice</em>) bridges the gap by mapping two independent USB mice to a virtual serial port interface, allowing players to execute hardcore charts using standard desktop peripherals.</p>
+<p>Required Notice: Copyright 2026 bkmile522 (<a href="https://github.com/bkmile522/2maiss" target="_blank" rel="noopener noreferrer">https://github.com/bkmile522/2maiss</a>)</p>
 
-<h2>Technical Architecture</h2>
+<p><strong>2maiss</strong> (pronounced <em>Two Mice</em>) is a lightweight dual-mouse touch solution designed for a specific "washing machine" rhythm game. Experience hardcore charts using just two standard USB mice.</p>
+
+<h3>✨ Key Features</h3>
 <ul>
-<li><strong>Raw Input Interception:</strong> Guarantees left and right physical mice do not interfere, isolating movement data at the hardware level.</li>
-<li><strong>Serial Emulation:</strong> Outputs standard touch protocol to <span class="code">com0com</span> virtual pairs (<span class="code">COM33</span> &lt;-&gt; <span class="code">COM3</span>).</li>
-<li><strong>Visual Calibration:</strong> In-game UI overlay (via <span class="code">F11</span>) to adjust and scale interaction sectors on the fly.</li>
-<li><strong>Ecosystem Compatibility:</strong> Designed to run seamlessly alongside standard environments like <span class="code">AquaMai</span> and <span class="code">MelonLoader</span>.</li>
+    <li><strong>Ultra Low-Cost</strong>: No expensive touchscreens or custom controllers required. Use any two standard USB mice.</li>
+    <li><strong>GUI Launcher</strong>: Easy-to-use interface for mouse binding and one-click game launching.</li>
+    <li><strong>Hardware-Level Separation</strong>: Intercepts raw input to ensure left and right hands do not interfere.</li>
+    <li><strong>Visual Calibration</strong>: Built-in overlay to visualize and adjust touch zones.</li>
 </ul>
 
-<h2>Deployment Prerequisites</h2>
+<hr>
+
+<h2>🛠️ 1. Installation & Prerequisites (Mandatory)</h2>
+<p>Everyone must complete these steps before the first run.</p>
+<ol>
+    <li><strong>Software Prep</strong>:
+        <ul>
+            <li><strong>AquaMai</strong>: Ensure <strong>AquaMai</strong> is installed in your game directory. Open <code>AquaMai.toml</code> and set:
+<pre><code>HideSubMonitor = true
+BaudRate = 115200</code></pre>
+            </li>
+            <li><strong>com0com</strong>: Install <code>com0com</code> and create a virtual port pair: <code>COM33</code> &lt;-&gt; <code>COM3</code>.</li>
+        </ul>
+    </li>
+    <li><strong>Extract the Tool</strong>:
+        <ul>
+            <li>Extract the <code>2maiss</code> release <code>.zip</code> to a dedicated folder.</li>
+            <li>⚠️ <strong>IMPORTANT:</strong> Do <strong>NOT</strong> move the <code>.exe</code> files out of this folder. <code>2maiss_Launcher.exe</code>, <code>2maiss_Backend.exe</code>, and <code>lut.png</code> must stay in the same folder.</li>
+        </ul>
+    </li>
+    <li><strong>Install Mod</strong>:
+        <ul>
+            <li>Copy the <code>Package</code> folder from the tool directory into your <strong>Game Root Directory</strong>.</li>
+            <li>Verify <code>YourGameRoot\Package\Mods\2maiss.dll</code> and <code>UserData\2maiss\</code> assets (including <code>left.png</code>, <code>right.png</code>, <code>lut.png</code>) exist.</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h2>⚡ 2. Quick Play (Recommended for Most Users)</h2>
+<p>Follow this section to start playing immediately with optimal settings.</p>
+<ol>
+    <li><strong>First-Time Setup</strong>:
+        <ul>
+            <li>Run <code>2maiss_Launcher.exe</code>.</li>
+            <li><strong>Mouse Binding</strong>: Go to <strong>Hardware & Binding</strong>, click <strong>Start Mouse Binding</strong>, and follow the prompts to identify your Left and Right mice.</li>
+            <li><strong>Game Path</strong>: In <strong>Play Settings</strong>, browse and select your game's startup <code>.bat</code> file.</li>
+            <li><strong>Click the <code>Save Config</code>.</strong></li>
+        </ul>
+    </li>
+    <li><strong>Launch & Preferences</strong>:
+        <ul>
+            <li><strong>Default Settings</strong>: The initial configuration is already optimized. You don't need to change sensitivity or radius values to start.</li>
+            <li><strong>Mouse Acceleration</strong>: Simulated acceleration is <strong>Enabled</strong> by default. If you prefer raw, linear movement, uncheck "Enable simulated Windows Enhance Pointer Precision" in <strong>Play Settings</strong>.</li>
+            <li><strong>Framerate</strong>: It is highly recommended to run the game at <strong>60fps</strong> for better experience.</li>
+        </ul>
+    </li>
+    <li><strong>In-Game Control</strong>:
+        <ul>
+            <li>Click <strong>Start Game</strong> in the launcher.</li>
+            <li>Press <strong>F8</strong> to activate. Your <strong>System Cursor</strong> will be locked and hidden—this is normal and indicates the tool has taken control.</li>
+            <li>Press <strong>F8</strong> again to release the cursor back to Windows.</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h2>📐 3. Advanced Configuration & Calibration</h2>
+<p>For users who need to fine-tune their experience.</p>
+
+<h3>In-Game Visual Calibration (F11)</h3>
+<p>If you have set <code>HideSubMonitor = true</code> as instructed, the touch area should already align perfectly with the screen. You likely <strong>won't need</strong> to calibrate unless you have adjusted the screen position.</p>
 <ul>
-<li><span class="code">AquaMai.toml</span> configuration requires <span class="code">HideSubMonitor = true</span> and <span class="code">BaudRate = 115200</span>.</li>
-<li>A properly configured <span class="code">com0com</span> loopback.</li>
-<li>Dedicated <span class="code">Package\Mods\2maiss.dll</span> injection for visual overlays.</li>
+    <li><strong>Open/Save</strong>: Press <code>F11</code> in-game to toggle the calibration UI.</li>
+    <li><strong>Adjust</strong>: Use <code>Arrow Keys</code> to move the zone, and <code>-</code> / <code>=</code> to scale.</li>
+    <li><strong>Speed</strong>: Use <code>[</code> and <code>]</code> to change the adjustment increment.</li>
+    <li><strong>Save</strong>: Press <code>F11</code> again to save and exit.</li>
 </ul>
 
-<h2>Repository & Source</h2>
-<p>Released under the <strong>PolyForm Noncommercial 1.0.0</strong> license.</p>
-<p><a href="https://github.com/bkmile522/2maiss" id="repo-link" target="_blank" rel="noopener noreferrer">Access Source Code & Release Builds</a></p>
+<h3>Troubleshooting FAQ</h3>
+<ul>
+    <li><strong>No Touch Response?</strong>: Ensure <code>F8</code> is toggled on, <code>com0com</code> is active, and <code>lut.png</code> is present in <code>UserData\2maiss\</code>.</li>
+    <li><strong>Buttons Remapping</strong>: You can change which mouse buttons trigger <strong>Tap</strong> vs. <strong>Wipe</strong> in the Launcher's Play Settings.</li>
+</ul>
 
-<script>
-const u = window.location.href;
-const usr = u.split('.')[0].split('//')[1];
-const rep = u.split('/')[3];
-if(usr && rep && u.includes('github.io')) {
-    document.getElementById('repo-link').href = `https://github.com/${usr}/${rep}`;
-}
-</script>
+<hr>
+
+<h2>🏗️ Building from Source</h2>
+<p>Due to copyright restrictions, the required Unity and MelonLoader assemblies are not included in this repository.</p>
+
+<p><strong>Required dependencies:</strong></p>
+<ul>
+    <li><code>MelonLoader.dll</code></li>
+    <li><code>UnityEngine.CoreModule.dll</code></li>
+    <li><code>UnityEngine.IMGUIModule.dll</code></li>
+    <li><code>UnityEngine.ImageConversionModule.dll</code></li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+<ol>
+    <li>Copy the DLLs listed above.</li>
+    <li>Place them in the <code>Frontend</code> folder.</li>
+    <li>Open the project in Visual Studio or run <code>dotnet build</code> to compile.</li>
+</ol>
+<p><em>Note: The Backend and Launcher are standalone and can be built right out of the box without any external proprietary DLLs.</em></p>
+
+<h2>💖 Credits & Acknowledgements</h2>
+<ul>
+    <li><strong><a href="https://github.com/Sucareto/Mai2Touch" target="_blank" rel="noopener noreferrer">Mai2Touch</a></strong>: For the serial protocol reference.</li>
+    <li><strong>Cursor Assets</strong>: Cursor pack provided by <a href="https://kenney.nl/assets/cursor-pack" target="_blank" rel="noopener noreferrer">Kenney</a>.</li>
+    <li><strong>Gemini 3.1 Pro</strong>: Core logic and UI structure assistance. 100% vibe coding! 🤖</li>
+    <li><strong><a href="https://github.com/nothings/stb" target="_blank" rel="noopener noreferrer">stb_image</a></strong>: Single-file public domain library used for loading the LUT image.</li>
+    <li><strong><a href="https://github.com/pulzed/mINI" target="_blank" rel="noopener noreferrer">mINI</a></strong>: A tiny and fast header-only C++ INI file parser used for configuration management.</li>
+    <li><strong><a href="https://github.com/LavaGang/MelonLoader" target="_blank" rel="noopener noreferrer">MelonLoader</a></strong>: The foundational modding framework that makes the frontend overlay possible.</li>
+</ul>
+
+<div class="disclaimer">
+    *Disclaimer: This project is for technical research and educational purposes only. It is free and not affiliated with any commercial entities.
+</div>
+
 </body>
 </html>
