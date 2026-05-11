@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2maiss | The Dual-Mouse Interface</title>
+<meta name="description" content="A lightweight hardware emulator mapping standard USB mice to virtual COM ports for specific arcade setups.">
+<meta name="keywords" content="2maiss, washing machine rhythm game, com0com, aquamai, serial protocol, hardware emulator, dual mouse, touch panel">
+<style>
+body { background-color: #0a0a0c; color: #c9d1d9; font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; }
+h1 { color: #58a6ff; font-size: 2.2em; margin-bottom: 5px; }
+.subtitle { color: #8b949e; margin-top: 0; margin-bottom: 30px; font-size: 1.1em; }
+h2 { color: #79c0ff; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 8px; font-size: 1.3em; }
+a { color: #58a6ff; text-decoration: none; border-bottom: 1px dotted #58a6ff; padding-bottom: 2px; transition: color 0.2s; }
+a:hover { color: #79c0ff; border-bottom: 1px solid #79c0ff; }
+.warning { border: 1px solid #792e2e; padding: 15px; border-radius: 4px; margin: 25px 0; color: #ff7b72; background-color: rgba(248,81,73,0.05); font-size: 0.95em; }
+.code { background-color: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; color: #e6edf3; border: 1px solid #30363d; }
+ul { list-style-type: square; padding-left: 20px; color: #8b949e; }
+li { margin-bottom: 12px; }
+li strong { color: #c9d1d9; }
+</style>
+</head>
+<body>
+<h1>2maiss 🖱️🖱️</h1>
+<p class="subtitle">Hardware-level dual-mouse touch translation for a specific "washing machine" rhythm game.</p>
+
+<div class="warning">
+LEGAL NOTICE: This repository contains ONLY generic input translation logic. It does NOT distribute proprietary game binaries, decryptors, cabinet keys, or copyrighted Unity/MelonLoader assemblies. It is a clean-room implementation of serial protocols.
+</div>
+
+<h2>Overview</h2>
+<p>Dedicated hardware touch panels for specific arcade setups can be prohibitively expensive. <strong>2maiss</strong> (pronounced <em>Two Mice</em>) bridges the gap by mapping two independent USB mice to a virtual serial port interface, allowing players to execute hardcore charts using standard desktop peripherals.</p>
+
+<h2>Technical Architecture</h2>
+<ul>
+<li><strong>Raw Input Interception:</strong> Guarantees left and right physical mice do not interfere, isolating movement data at the hardware level.</li>
+<li><strong>Serial Emulation:</strong> Outputs standard touch protocol to <span class="code">com0com</span> virtual pairs (<span class="code">COM33</span> &lt;-&gt; <span class="code">COM3</span>).</li>
+<li><strong>Visual Calibration:</strong> In-game UI overlay (via <span class="code">F11</span>) to adjust and scale interaction sectors on the fly.</li>
+<li><strong>Ecosystem Compatibility:</strong> Designed to run seamlessly alongside standard environments like <span class="code">AquaMai</span> and <span class="code">MelonLoader</span>.</li>
+</ul>
+
+<h2>Deployment Prerequisites</h2>
+<ul>
+<li><span class="code">AquaMai.toml</span> configuration requires <span class="code">HideSubMonitor = true</span> and <span class="code">BaudRate = 115200</span>.</li>
+<li>A properly configured <span class="code">com0com</span> loopback.</li>
+<li>Dedicated <span class="code">Package\Mods\2maiss.dll</span> injection for visual overlays.</li>
+</ul>
+
+<h2>Repository & Source</h2>
+<p>Released under the <strong>PolyForm Noncommercial 1.0.0</strong> license.</p>
+<p><a href="https://github.com/bkmile522/2maiss" id="repo-link" target="_blank" rel="noopener noreferrer">Access Source Code & Release Builds</a></p>
+
+<script>
+const u = window.location.href;
+const usr = u.split('.')[0].split('//')[1];
+const rep = u.split('/')[3];
+if(usr && rep && u.includes('github.io')) {
+    document.getElementById('repo-link').href = `https://github.com/${usr}/${rep}`;
+}
+</script>
+</body>
+</html>
